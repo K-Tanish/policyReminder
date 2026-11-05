@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.policyreminder.app.data.model.Customer
 import com.policyreminder.app.data.model.Policy
 import com.policyreminder.app.data.model.PolicyStatus
+import com.policyreminder.app.ui.components.DatePickerField
 import com.policyreminder.app.ui.viewmodel.CustomerViewModel
 import com.policyreminder.app.ui.viewmodel.PolicyViewModel
 import java.text.SimpleDateFormat
@@ -349,27 +350,25 @@ fun AddPolicyScreen(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                CustomTextField(
+                DatePickerField(
                     value = startDate,
                     onValueChange = { 
                         startDate = it
                         showError = false
                     },
-                    label = "Start Date * (DD/MM/YYYY)",
+                    label = "Start Date *",
                     leadingIcon = Icons.Outlined.CalendarToday,
-                    keyboardType = KeyboardType.Number,
                     modifier = Modifier.weight(1f)
                 )
                 
-                CustomTextField(
+                DatePickerField(
                     value = renewalDate,
                     onValueChange = { 
                         renewalDate = it
                         showError = false
                     },
-                    label = "Renewal Date * (DD/MM/YYYY)",
+                    label = "Renewal Date *",
                     leadingIcon = Icons.Outlined.Event,
-                    keyboardType = KeyboardType.Number,
                     modifier = Modifier.weight(1f)
                 )
             }

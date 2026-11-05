@@ -24,9 +24,12 @@ import com.policyreminder.app.ui.components.PolicyCard
 import com.policyreminder.app.ui.components.QuickAccessButton
 import com.policyreminder.app.ui.components.QuickActionCard
 import com.policyreminder.app.ui.components.ReminderItem
+import com.policyreminder.app.ui.components.RenewalCalendar
+import com.policyreminder.app.ui.components.RenewalDate
 import com.policyreminder.app.ui.theme.Background30
 import com.policyreminder.app.ui.theme.Foreground15
 import com.policyreminder.app.ui.viewmodel.HomeViewModel
+import java.util.Calendar
 
 @Composable
 fun HomeScreen(
@@ -125,6 +128,47 @@ fun HomeScreen(
                         onClick = onNavigateToFollowUps
                     )
                 }
+            }
+        }
+        
+        // Renewal Calendar Section
+        item {
+            Column(
+                modifier = Modifier.padding(horizontal = 20.dp, vertical = 8.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                Text(
+                    text = "Renewal Calendar",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.primary
+                )
+                
+                // Convert policies to renewal dates for the calendar
+                val renewalDates = uiState.recentPolicies
+                    .groupBy { policy ->
+                        Calendar.getInstance().apply {
+                            timeInMillis = policy.policy.renewalDate
+                            set(Calendar.HOUR_OF_DAY, 0)
+                            set(Calendar.MINUTE, 0)
+                            set(Calendar.SECOND, 0)
+                            set(Calendar.MILLISECOND, 0)
+                        }
+                    }
+                    .map { (date, policies) ->
+                        RenewalDate(
+                            date = date,
+                            count = policies.size,
+                            policyIds = policies.map { it.policy.id }
+                        )
+                    }
+                
+                RenewalCalendar(
+                    renewalDates = renewalDates,
+                    onDateClick = { date ->
+                        // Navigate to policies filtered by this date
+                        onNavigateToPolicies()
+                    }
+                )
             }
         }
         
