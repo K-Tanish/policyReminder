@@ -53,7 +53,13 @@ class HomeViewModel(
                 policyRepository.getAllPolicies(),
                 reminderRepository.getUpcomingReminders(getNextMonthTimestamp()),
                 customerRepository.getAllCustomers()
-            ) { customerCount, policyCount, reminderCount, policies, reminders, customers ->
+            ) { flows: Array<Any?> ->
+                val customerCount = flows[0] as Int
+                val policyCount = flows[1] as Int
+                val reminderCount = flows[2] as Int
+                val policies = flows[3] as List<Policy>
+                val reminders = flows[4] as List<Reminder>
+                val customers = flows[5] as List<Customer>
                 
                 val customerMap = customers.associateBy { it.id }
                 

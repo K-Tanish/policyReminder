@@ -5,8 +5,6 @@ import com.policyreminder.app.data.dao.FamilyMemberDao
 import com.policyreminder.app.data.model.Customer
 import com.policyreminder.app.data.model.FamilyMember
 import kotlinx.coroutines.flow.Flow
-import javax.inject.Inject
-import javax.inject.Singleton
 
 class CustomerRepository(
     private val customerDao: CustomerDao,

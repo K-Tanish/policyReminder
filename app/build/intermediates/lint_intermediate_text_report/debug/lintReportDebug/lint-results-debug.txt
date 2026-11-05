@@ -1,0 +1,309 @@
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\java\com\policyreminder\app\utils\MessageTemplateUtils.kt:220: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+        return "₹${String.format("%,.2f", amount)}"
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DefaultLocale":
+   Calling String#toLowerCase() or #toUpperCase() without specifying an
+   explicit locale is a common source of bugs. The reason for that is that
+   those methods will use the current locale on the user's device, and even
+   though the code appears to work correctly when you are developing the app,
+   it will fail in some locales. For example, in the Turkish locale, the
+   uppercase replacement for i is not I.
+
+   If you want the methods to just perform ASCII replacement, for example to
+   convert an enum name, call String#toUpperCase(Locale.ROOT) instead. If you
+   really want to use the current locale, call
+   String#toUpperCase(Locale.getDefault()) instead.
+
+   https://developer.android.com/reference/java/util/Locale.html#default_locale
+
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:14: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdk = 34
+        ~~~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application runs on a version of Android that is more recent than
+   your targetSdkVersion specifies that it has been tested with, various
+   compatibility modes kick in. This ensures that your application continues
+   to work, but it may look out of place. For example, if the targetSdkVersion
+   is less than 14, your app may get an option button in the UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:60: Warning: A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.19.1 [GradleDependency]
+    implementation("androidx.core:core-ktx:1.12.0")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:61: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.6.2 is available: 2.11.0 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:62: Warning: A newer version of androidx.activity:activity-compose than 1.8.1 is available: 1.13.0 [GradleDependency]
+    implementation("androidx.activity:activity-compose:1.8.1")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:65: Warning: A newer version of androidx.compose:compose-bom than 2023.10.01 is available: 2026.09.00 [GradleDependency]
+    implementation(platform("androidx.compose:compose-bom:2023.10.01"))
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:73: Warning: A newer version of androidx.navigation:navigation-compose than 2.7.5 is available: 2.10.2 [GradleDependency]
+    implementation("androidx.navigation:navigation-compose:2.7.5")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:77: Warning: A newer version of androidx.room:room-runtime than 2.6.1 is available: 2.8.5 [GradleDependency]
+    implementation("androidx.room:room-runtime:$roomVersion")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:78: Warning: A newer version of androidx.room:room-ktx than 2.6.1 is available: 2.8.5 [GradleDependency]
+    implementation("androidx.room:room-ktx:$roomVersion")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:79: Warning: A newer version of androidx.room:room-compiler than 2.6.1 is available: 2.8.5 [GradleDependency]
+    ksp("androidx.room:room-compiler:$roomVersion")
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:82: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.6.2 is available: 2.11.0 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:83: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-compose than 2.6.2 is available: 2.11.0 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:86: Warning: A newer version of androidx.work:work-runtime-ktx than 2.9.0 is available: 2.12.0 [GradleDependency]
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:92: Warning: A newer version of androidx.datastore:datastore-preferences than 1.0.0 is available: 1.3.0 [GradleDependency]
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:95: Warning: A newer version of com.google.code.gson:gson than 2.10.1 is available: 2.11.0 [GradleDependency]
+    implementation("com.google.code.gson:gson:2.10.1")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:99: Warning: A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.3.0 [GradleDependency]
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:100: Warning: A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.7.0 [GradleDependency]
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\build.gradle.kts:101: Warning: A newer version of androidx.compose:compose-bom than 2023.10.01 is available: 2026.09.00 [GradleDependency]
+    androidTestImplementation(platform("androidx.compose:compose-bom:2023.10.01"))
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\java\com\policyreminder\app\ui\screens\AddCustomerScreen.kt:303: Warning: Modifier parameter should be the first optional parameter [ModifierParameter from androidx.compose.ui]
+    modifier: Modifier = Modifier
+    ~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\java\com\policyreminder\app\ui\screens\AddPolicyScreen.kt:513: Warning: Modifier parameter should be the first optional parameter [ModifierParameter from androidx.compose.ui]
+    modifier: Modifier = Modifier
+    ~~~~~~~~
+
+   Explanation for issues of type "ModifierParameter":
+   The first (or only) Modifier parameter in a Composable function should
+   follow the following rules:
+   - Be named modifier
+   - Have a type of Modifier
+   - Either have no default value, or have a default value of Modifier
+   - If optional, be the first optional parameter in the parameter list
+
+   Vendor: Jetpack Compose
+   Identifier: androidx.compose.ui
+   Feedback: https://issuetracker.google.com/issues/new?component=612128
+
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\java\com\policyreminder\app\utils\NotificationHelper.kt:26: Warning: Unnecessary; SDK_INT is always >= 26 [ObsoleteSdkInt]
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ObsoleteSdkInt":
+   This check flags version checks that are not necessary, because the
+   minSdkVersion (or surrounding known API level) is already at least as high
+   as the version checked for.
+
+   Similarly, it also looks for resources in -vNN folders, such as values-v14
+   where the version qualifier is less than or equal to the minSdkVersion,
+   where the contents should be merged into the best folder.
+
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\colors.xml:5: Warning: The resource R.color.foreground_primary appears to be unused [UnusedResources]
+    <color name="foreground_primary">#E7E5D7</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\colors.xml:8: Warning: The resource R.color.foreground_15 appears to be unused [UnusedResources]
+    <color name="foreground_15">#26E7E5D7</color>
+           ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\colors.xml:9: Warning: The resource R.color.foreground_30 appears to be unused [UnusedResources]
+    <color name="foreground_30">#4DE7E5D7</color>
+           ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\colors.xml:10: Warning: The resource R.color.foreground_60 appears to be unused [UnusedResources]
+    <color name="foreground_60">#99E7E5D7</color>
+           ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\colors.xml:11: Warning: The resource R.color.foreground_80 appears to be unused [UnusedResources]
+    <color name="foreground_80">#CCE7E5D7</color>
+           ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\colors.xml:13: Warning: The resource R.color.background_15 appears to be unused [UnusedResources]
+    <color name="background_15">#26222223</color>
+           ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\colors.xml:14: Warning: The resource R.color.background_30 appears to be unused [UnusedResources]
+    <color name="background_30">#4D222223</color>
+           ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:6: Warning: The resource R.string.nav_home appears to be unused [UnusedResources]
+    <string name="nav_home">Home</string>
+            ~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:7: Warning: The resource R.string.nav_customers appears to be unused [UnusedResources]
+    <string name="nav_customers">Customers</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:8: Warning: The resource R.string.nav_policies appears to be unused [UnusedResources]
+    <string name="nav_policies">Policies</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:9: Warning: The resource R.string.nav_reminders appears to be unused [UnusedResources]
+    <string name="nav_reminders">Reminders</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:10: Warning: The resource R.string.nav_settings appears to be unused [UnusedResources]
+    <string name="nav_settings">Settings</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:13: Warning: The resource R.string.good_morning appears to be unused [UnusedResources]
+    <string name="good_morning">Good Morning</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:14: Warning: The resource R.string.good_afternoon appears to be unused [UnusedResources]
+    <string name="good_afternoon">Good Afternoon</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:15: Warning: The resource R.string.good_evening appears to be unused [UnusedResources]
+    <string name="good_evening">Good Evening</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:16: Warning: The resource R.string.insurance_advisor appears to be unused [UnusedResources]
+    <string name="insurance_advisor">Insurance Advisor</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:17: Warning: The resource R.string.add_customer appears to be unused [UnusedResources]
+    <string name="add_customer">Add Customer</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:18: Warning: The resource R.string.register_new_client appears to be unused [UnusedResources]
+    <string name="register_new_client">Register a new client</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:19: Warning: The resource R.string.add_policy appears to be unused [UnusedResources]
+    <string name="add_policy">Add Policy</string>
+            ~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:20: Warning: The resource R.string.register_new_policy appears to be unused [UnusedResources]
+    <string name="register_new_policy">Register a new policy</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:21: Warning: The resource R.string.quick_access appears to be unused [UnusedResources]
+    <string name="quick_access">Quick Access</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:22: Warning: The resource R.string.renewals appears to be unused [UnusedResources]
+    <string name="renewals">Renewals</string>
+            ~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:23: Warning: The resource R.string.birthdays appears to be unused [UnusedResources]
+    <string name="birthdays">Birthdays</string>
+            ~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:24: Warning: The resource R.string.anniversaries appears to be unused [UnusedResources]
+    <string name="anniversaries">Anniversaries</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:25: Warning: The resource R.string.follow_up appears to be unused [UnusedResources]
+    <string name="follow_up">Follow-up</string>
+            ~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:26: Warning: The resource R.string.explore_customers appears to be unused [UnusedResources]
+    <string name="explore_customers">Explore Customers</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:27: Warning: The resource R.string.view_manage_database appears to be unused [UnusedResources]
+    <string name="view_manage_database">View and manage your client database</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:28: Warning: The resource R.string.my_policies appears to be unused [UnusedResources]
+    <string name="my_policies">My Policies</string>
+            ~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:29: Warning: The resource R.string.upcoming_reminders appears to be unused [UnusedResources]
+    <string name="upcoming_reminders">Upcoming Reminders</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:30: Warning: The resource R.string.see_all appears to be unused [UnusedResources]
+    <string name="see_all">See all</string>
+            ~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:33: Warning: The resource R.string.search_customers appears to be unused [UnusedResources]
+    <string name="search_customers">Search customers</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:34: Warning: The resource R.string.no_customers appears to be unused [UnusedResources]
+    <string name="no_customers">No customers found</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:35: Warning: The resource R.string.add_first_customer appears to be unused [UnusedResources]
+    <string name="add_first_customer">Add your first customer</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:38: Warning: The resource R.string.search_policies appears to be unused [UnusedResources]
+    <string name="search_policies">Search policies</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:39: Warning: The resource R.string.no_policies appears to be unused [UnusedResources]
+    <string name="no_policies">No policies found</string>
+            ~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:40: Warning: The resource R.string.add_first_policy appears to be unused [UnusedResources]
+    <string name="add_first_policy">Add your first policy</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:41: Warning: The resource R.string.policy_status_active appears to be unused [UnusedResources]
+    <string name="policy_status_active">Active</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:42: Warning: The resource R.string.policy_status_due_soon appears to be unused [UnusedResources]
+    <string name="policy_status_due_soon">Due Soon</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:43: Warning: The resource R.string.policy_status_overdue appears to be unused [UnusedResources]
+    <string name="policy_status_overdue">Overdue</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:44: Warning: The resource R.string.policy_status_renewed appears to be unused [UnusedResources]
+    <string name="policy_status_renewed">Renewed</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:45: Warning: The resource R.string.policy_status_lapsed appears to be unused [UnusedResources]
+    <string name="policy_status_lapsed">Lapsed</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:48: Warning: The resource R.string.policy_renewal appears to be unused [UnusedResources]
+    <string name="policy_renewal">Policy renewal</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:49: Warning: The resource R.string.birthday appears to be unused [UnusedResources]
+    <string name="birthday">Birthday</string>
+            ~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:50: Warning: The resource R.string.anniversary appears to be unused [UnusedResources]
+    <string name="anniversary">Anniversary</string>
+            ~~~~~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:53: Warning: The resource R.string.save appears to be unused [UnusedResources]
+    <string name="save">Save</string>
+            ~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:54: Warning: The resource R.string.cancel appears to be unused [UnusedResources]
+    <string name="cancel">Cancel</string>
+            ~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:55: Warning: The resource R.string.delete appears to be unused [UnusedResources]
+    <string name="delete">Delete</string>
+            ~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:56: Warning: The resource R.string.edit appears to be unused [UnusedResources]
+    <string name="edit">Edit</string>
+            ~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:57: Warning: The resource R.string.confirm appears to be unused [UnusedResources]
+    <string name="confirm">Confirm</string>
+            ~~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:58: Warning: The resource R.string.search appears to be unused [UnusedResources]
+    <string name="search">Search</string>
+            ~~~~~~~~~~~~~
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\res\values\strings.xml:59: Warning: The resource R.string.notification appears to be unused [UnusedResources]
+    <string name="notification">Notification</string>
+            ~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+C:\Users\Tanish\Desktop\policyReminder\app\src\main\AndroidManifest.xml:16: Warning: Should explicitly set android:icon, there is no default [MissingApplicationIcon]
+    <application
+     ~~~~~~~~~~~
+
+   Explanation for issues of type "MissingApplicationIcon":
+   You should set an icon for the application as whole because there is no
+   default. This attribute must be set as a reference to a drawable resource
+   containing the image (for example @drawable/icon).
+
+   https://developer.android.com/studio/publish/preparing#publishing-configure
+
+0 errors, 73 warnings

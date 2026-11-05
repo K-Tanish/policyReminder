@@ -167,6 +167,7 @@ fun RemindersScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ReminderFilterChip(
     label: String,

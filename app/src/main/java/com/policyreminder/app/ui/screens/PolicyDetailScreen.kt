@@ -186,39 +186,79 @@ private fun PolicyHeaderCard(
     onRenewClick: () -> Unit,
     onCallClick: () -> Unit
 ) {
-    Card(Modifier.fillMaxWidth(), RoundedCornerShape(16.dp),
-         CardDefaults.cardColors(containerColor = Foreground15)) {
-        Column(Modifier.padding(20.dp), Alignment.CenterHorizontally, 
-               Arrangement.spacedBy(16.dp)) {
-            Box(Modifier.size(80.dp).clip(CircleShape)
-                .background(MaterialTheme.colorScheme.primary.copy(0.15f)),
-                Alignment.Center) {
-                Icon(Icons.Outlined.Description, null, 
-                     Modifier.size(40.dp), MaterialTheme.colorScheme.primary)
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = Foreground15)
+    ) {
+        Column(
+            modifier = Modifier.padding(20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(80.dp)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.primary.copy(0.15f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Outlined.Description,
+                    contentDescription = null,
+                    modifier = Modifier.size(40.dp),
+                    tint = MaterialTheme.colorScheme.primary
+                )
             }
             
-            Column(Alignment.CenterHorizontally, Arrangement.spacedBy(4.dp)) {
-                Text(policy.policyType, MaterialTheme.typography.headlineSmall,
-                     color = MaterialTheme.colorScheme.primary)
-                Text(customerName, MaterialTheme.typography.bodyMedium,
-                     color = MaterialTheme.colorScheme.primary.copy(0.6f))
-                Text(policy.insuranceCompany, MaterialTheme.typography.bodySmall,
-                     color = MaterialTheme.colorScheme.primary.copy(0.5f))
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                Text(
+                    text = policy.policyType,
+                    style = MaterialTheme.typography.headlineSmall,
+                    color = MaterialTheme.colorScheme.primary
+                )
+                Text(
+                    text = customerName,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.primary.copy(0.6f)
+                )
+                Text(
+                    text = policy.insuranceCompany,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary.copy(0.5f)
+                )
             }
             
-            Row(Arrangement.spacedBy(12.dp)) {
-                Button(onRenewClick, 
-                       colors = ButtonDefaults.buttonColors(
-                           MaterialTheme.colorScheme.primary,
-                           MaterialTheme.colorScheme.background)) {
-                    Icon(Icons.Outlined.Refresh, "Renew", Modifier.size(18.dp))
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Button(
+                    onClick = onRenewClick,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.background
+                    )
+                ) {
+                    Icon(
+                        imageVector = Icons.Outlined.Refresh,
+                        contentDescription = "Renew",
+                        modifier = Modifier.size(18.dp)
+                    )
                     Spacer(Modifier.width(8.dp))
                     Text("Renew")
                 }
-                OutlinedButton(onCallClick,
-                              colors = ButtonDefaults.outlinedButtonColors(
-                                  MaterialTheme.colorScheme.primary)) {
-                    Icon(Icons.Outlined.Phone, "Call", Modifier.size(18.dp))
+                OutlinedButton(
+                    onClick = onCallClick,
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = MaterialTheme.colorScheme.primary
+                    )
+                ) {
+                    Icon(
+                        imageVector = Icons.Outlined.Phone,
+                        contentDescription = "Call",
+                        modifier = Modifier.size(18.dp)
+                    )
                     Spacer(Modifier.width(8.dp))
                     Text("Call")
                 }
@@ -228,39 +268,120 @@ private fun PolicyHeaderCard(
 }
 
 @Composable
+private fun InfoSection(
+    title: String,
+    items: List<Pair<String, String>>,
+    modifier: Modifier = Modifier
+) {
+    Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.primary
+        )
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(12.dp),
+            colors = CardDefaults.cardColors(containerColor = Foreground15)
+        ) {
+            Column(
+                modifier = Modifier.padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                items.forEach { (label, value) ->
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(
+                            text = label,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.6f)
+                        )
+                        Text(
+                            text = value,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
 private fun RenewalHistoryItem(history: RenewalHistory) {
-    Card(Modifier.fillMaxWidth(), RoundedCornerShape(12.dp),
-         CardDefaults.cardColors(containerColor = Foreground15)) {
-        Column(Modifier.padding(16.dp), Arrangement.spacedBy(8.dp)) {
-            Row(Modifier.fillMaxWidth(), Arrangement.SpaceBetween) {
-                Text("Renewed on ${formatDate(history.renewedAt)}",
-                     style = MaterialTheme.typography.titleSmall,
-                     color = MaterialTheme.colorScheme.primary)
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = Foreground15)
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = "Renewed on ${formatDate(history.renewedAt)}",
+                    style = MaterialTheme.typography.titleSmall,
+                    color = MaterialTheme.colorScheme.primary
+                )
             }
-            Row(Modifier.fillMaxWidth(), Arrangement.SpaceBetween) {
-                Text("Old Date:", style = MaterialTheme.typography.bodySmall,
-                     color = MaterialTheme.colorScheme.primary.copy(0.6f))
-                Text(formatDate(history.previousRenewalDate),
-                     style = MaterialTheme.typography.bodySmall,
-                     color = MaterialTheme.colorScheme.primary)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = "Old Date:",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary.copy(0.6f)
+                )
+                Text(
+                    text = formatDate(history.previousRenewalDate),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary
+                )
             }
-            Row(Modifier.fillMaxWidth(), Arrangement.SpaceBetween) {
-                Text("New Date:", style = MaterialTheme.typography.bodySmall,
-                     color = MaterialTheme.colorScheme.primary.copy(0.6f))
-                Text(formatDate(history.newRenewalDate),
-                     style = MaterialTheme.typography.bodySmall,
-                     color = MaterialTheme.colorScheme.primary)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = "New Date:",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary.copy(0.6f)
+                )
+                Text(
+                    text = formatDate(history.newRenewalDate),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary
+                )
             }
-            Row(Modifier.fillMaxWidth(), Arrangement.SpaceBetween) {
-                Text("Premium:", style = MaterialTheme.typography.bodySmall,
-                     color = MaterialTheme.colorScheme.primary.copy(0.6f))
-                Text("${formatCurrency(history.previousPremium)} → ${formatCurrency(history.newPremium)}",
-                     style = MaterialTheme.typography.bodySmall,
-                     color = MaterialTheme.colorScheme.primary)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = "Premium:",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary.copy(0.6f)
+                )
+                Text(
+                    text = "${formatCurrency(history.previousPremium)} → ${formatCurrency(history.newPremium)}",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary
+                )
             }
             if (history.remarks.isNotEmpty()) {
-                Text(history.remarks, style = MaterialTheme.typography.bodySmall,
-                     color = MaterialTheme.colorScheme.primary.copy(0.7f))
+                Text(
+                    text = history.remarks,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary.copy(0.7f)
+                )
             }
         }
     }

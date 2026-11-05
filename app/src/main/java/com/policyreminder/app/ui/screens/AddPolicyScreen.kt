@@ -3,6 +3,8 @@ package com.policyreminder.app.ui.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -456,9 +458,11 @@ private fun CustomerPickerDialog(
         title = { Text("Select Customer") },
         text = {
             LazyColumn(
+                modifier = Modifier.fillMaxWidth().heightIn(max = 400.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                items(customers) { customer ->
+                items(customers.size) { index ->
+                    val customer = customers[index]
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()

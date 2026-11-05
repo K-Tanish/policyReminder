@@ -107,7 +107,7 @@ fun PoliciesScreen(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     item {
-                        FilterChip(
+                        PolicyFilterChip(
                             label = "All",
                             isSelected = selectedFilter == null,
                             onClick = {
@@ -116,8 +116,8 @@ fun PoliciesScreen(
                             }
                         )
                     }
-                    items(PolicyStatus.values()) { status ->
-                        FilterChip(
+                    items(PolicyStatus.entries.toTypedArray()) { status ->
+                        PolicyFilterChip(
                             label = status.name.replace("_", " "),
                             isSelected = selectedFilter == status,
                             onClick = {
@@ -176,8 +176,9 @@ fun PoliciesScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun FilterChip(
+private fun PolicyFilterChip(
     label: String,
     isSelected: Boolean,
     onClick: () -> Unit,
