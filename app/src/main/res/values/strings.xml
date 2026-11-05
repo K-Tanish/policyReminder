@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Policy Reminder</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_customers">Customers</string>
+    <string name="nav_policies">Policies</string>
+    <string name="nav_reminders">Reminders</string>
+    <string name="nav_settings">Settings</string>
+    
+    <!-- Home Screen -->
+    <string name="good_morning">Good Morning</string>
+    <string name="good_afternoon">Good Afternoon</string>
+    <string name="good_evening">Good Evening</string>
+    <string name="insurance_advisor">Insurance Advisor</string>
+    <string name="add_customer">Add Customer</string>
+    <string name="register_new_client">Register a new client</string>
+    <string name="add_policy">Add Policy</string>
+    <string name="register_new_policy">Register a new policy</string>
+    <string name="quick_access">Quick Access</string>
+    <string name="renewals">Renewals</string>
+    <string name="birthdays">Birthdays</string>
+    <string name="anniversaries">Anniversaries</string>
+    <string name="follow_up">Follow-up</string>
+    <string name="explore_customers">Explore Customers</string>
+    <string name="view_manage_database">View and manage your client database</string>
+    <string name="my_policies">My Policies</string>
+    <string name="upcoming_reminders">Upcoming Reminders</string>
+    <string name="see_all">See all</string>
+    
+    <!-- Customer Screen -->
+    <string name="search_customers">Search customers</string>
+    <string name="no_customers">No customers found</string>
+    <string name="add_first_customer">Add your first customer</string>
+    
+    <!-- Policy Screen -->
+    <string name="search_policies">Search policies</string>
+    <string name="no_policies">No policies found</string>
+    <string name="add_first_policy">Add your first policy</string>
+    <string name="policy_status_active">Active</string>
+    <string name="policy_status_due_soon">Due Soon</string>
+    <string name="policy_status_overdue">Overdue</string>
+    <string name="policy_status_renewed">Renewed</string>
+    <string name="policy_status_lapsed">Lapsed</string>
+    
+    <!-- Reminder Types -->
+    <string name="policy_renewal">Policy renewal</string>
+    <string name="birthday">Birthday</string>
+    <string name="anniversary">Anniversary</string>
+    
+    <!-- Common -->
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="confirm">Confirm</string>
+    <string name="search">Search</string>
+    <string name="notification">Notification</string>
+</resources>

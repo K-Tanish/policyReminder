@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Colors -->
+    <color name="background_primary">#222223</color>
+    <color name="foreground_primary">#E7E5D7</color>
+    
+    <!-- Additional transparency levels -->
+    <color name="foreground_15">#26E7E5D7</color>
+    <color name="foreground_30">#4DE7E5D7</color>
+    <color name="foreground_60">#99E7E5D7</color>
+    <color name="foreground_80">#CCE7E5D7</color>
+    
+    <color name="background_15">#26222223</color>
+    <color name="background_30">#4D222223</color>
+</resources>
